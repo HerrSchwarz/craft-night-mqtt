@@ -1,9 +1,9 @@
-#CRAFT-NIGHT-MQTT
+# CRAFT-NIGHT-MQTT
 
-#How To Setup Mosquitto Broker on RPi4B and Client on Linux and RPi Pico
+# How To Setup Mosquitto Broker on RPi4B and Client on Linux and RPi Pico
 Based on this [Tutorial](https://pimylifeup.com/raspberry-pi-mosquitto-mqtt-server/)
 
-##Install the Broker and Client on the RPi4B
+## Install the Broker and Client on the RPi4B
 First update your system:
 
 `sudo apt update`
@@ -41,7 +41,7 @@ For the changes to apply, the Broker has to be restarted
 Check that the Broker is running
 `sudo systemctl status mosquitto.service`
 
-###Subscribing and Publishing to a Topic
+### Subscribing and Publishing to a Topic
 Clients comunicate with the Broker through Topics. They can either Publish messages to a Topic or Subscribe to a Topic to receive messages that other clients Published to it.
 
 On the RPi open a new console and type in the following command to Subscribe to a Topic
@@ -60,10 +60,10 @@ Exchange `"YOUR_TOPIC"` for the name you chose and substitute `"YOUR_MESSAGE"` f
 
 Once youexectue this command, the message pops up in the console that Subscribed to the Topic.
 
-##Publishing from External Devices
+## Publishing from External Devices
 Publishing from external devices was made possible by adding the two lines above to the `mosquitto.conf file`. To Publish something to a Topic the Broker and Client have to be in the same network.
 
-###Python(Tested on Linux PC)
+### Python(Tested on Linux PC)
 For Publishing with Python the paho MQTT package is used. Install it using the following command
 `pip install paho-mqtt`
 
@@ -72,13 +72,13 @@ Please configure the values of `"BROKER_IP"` (IP-Adress of the RPi4), `"YOUR_TOP
 
 After executing this code your message should pop up in the Console on your RPi4 which Subscribed to the Topic.
 
-###Micropython(Tested On RPi Pico W with Linux PC)
+### Micropython(Tested On RPi Pico W with Linux PC)
 
 If you do not already have Micropython installed on your RPi Pico W, the current Micropython Version can be downloaded [here](https://micropython.org/download/rp2-pico-w/). Just download the latest version, connect your RPi Pico to the PC using a Micro-USB cable and it should pop up as an external drive.
 Copy the downloaded file directly into the drive and wait for a couple of seconds. The drive should now not be visible anymore, or at least the files previously visible are not there anymore.
 This means everything worked
 
-###Installing ampy
+### Installing ampy
 ampy, a package created by adafruit, allows writing files and executing Micropython code on a microcontroller from the command line. Execute the following code to install it.
 `pip install adafruit-ampy`
 
@@ -86,7 +86,7 @@ Also to find the port to which the Pico is connected you need the serial package
 
 `pip install serial`
 
-###Installing MQTT package for Micropython
+### Installing MQTT package for Micropython
 The MQTT package is, as of now, not part of the standard distribution libraries and needs to be installed manually.
 To do this the Pico must connect to the Wifi and download the package. The `pico_pi_umqtt_install.py` file included in this repository handles this. Again, please change the `ssid` and `password` values to your network's specifications and then run the script.
 
@@ -102,7 +102,7 @@ This will run the script on your Pico without actually writing it onto the micro
 
 If the script executes correctly, the console should show, that the umqtt package was installed on the Pico.
 
-###Publishing a Topic to the Broker
+### Publishing a Topic to the Broker
 Now everything is se up. The `boot.py` contains all the code necessary to Publish to a Topic. You need to change the following values to your specification, all of which have already been set at a pervious point in this tutorial:
 `ssid` -> your networks' SSID (line 7)
 `password` -> your networks' password (line 8)
@@ -124,4 +124,4 @@ If you used the `put` option you may have to disconnect and reconnect your Pico 
 After connecting to the network the message is Published to the Topic and should show up in the console on the RPi4 that Subscribed to the Topic.
 
 
-##Aaaaaand DONE :)
+## Aaaaaand DONE :)
