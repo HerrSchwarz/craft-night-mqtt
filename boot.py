@@ -3,12 +3,9 @@ import network
 import utime
 from umqtt.simple import MQTTClient
 
-
-# ssid="Simplexion Legacy"
-# password="VulcansWorshipPeaceAboveAll"
-ssid="Ciasteczko"
-password="ButtButt007!"
-mqtt_server = 'dev-mint-pi'
+ssid=""
+password=""
+mqtt_server = ''
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
