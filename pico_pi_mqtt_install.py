@@ -2,8 +2,8 @@ import network
 import time
 import upip
 
-ssid="YOUR_SSID"
-password="YOUR_PASSWORD"
+ssid="Villa Muk"
+password="sY6vA607Ftn3V4Gc5BvA"
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
